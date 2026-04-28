@@ -8,6 +8,7 @@ import { VirtualTradingSection } from "@/components/virtual-trading-section"
 import { ComplianceSection } from "@/components/compliance-section"
 import { TradingSection } from "@/components/trading-section"
 import { FeaturesSection } from "@/components/features-section"
+import { TestimonialsSection } from "@/components/testimonials-section"
 import { Footer } from "@/components/footer"
 import { ChatWidget } from "@/components/chat-widget"
 import { CookieConsent } from "@/components/cookie-consent"
@@ -25,6 +26,7 @@ export default function Home() {
       <ComplianceSection />
       <TradingSection />
       <FeaturesSection />
+      <TestimonialsSection />
       <Footer />
       <ChatWidget />
       <CookieConsent />
