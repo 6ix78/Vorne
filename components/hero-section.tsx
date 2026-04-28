@@ -46,8 +46,8 @@ export function HeroSection() {
       </div>
 
       {/* BTC/USDT indicator */}
-      <AnimatedSection animation="fade-left" delay={800}>
-        <div className="absolute top-24 right-4 md:right-12 flex items-center gap-2 px-3 py-1.5 bg-secondary/50 rounded-lg border border-border">
+      <AnimatedSection animation="fade-left" delay={200}>
+        <div className="absolute top-8 right-4 md:right-12 flex items-center gap-2 px-2 py-1 bg-secondary/50 rounded-lg border border-border scale-50 origin-top-right md:scale-75">
           <div className="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center text-xs font-bold text-white">B</div>
           <span className="text-xs text-muted-foreground">BTC/USDT</span>
           <span className="text-xs text-red-500 flex items-center gap-0.5">
