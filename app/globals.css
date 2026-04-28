@@ -123,3 +123,18 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes pulse-scale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+@layer utilities {
+  .animate-pulse-scale {
+    animation: pulse-scale 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}

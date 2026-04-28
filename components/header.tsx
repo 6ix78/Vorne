@@ -13,38 +13,42 @@ export function Header() {
     {
       category: "Sectors",
       items: [
-        "Stocks & ETFs",
-        "Crypto Assets",
-        "Real Estate",
-        "Fixed Income",
-        "Commodities",
-        "Business & Startups",
-        "Arts & Collectibles",
-        "Gaming & Esports",
-        "Cash & Savings",
+        { label: "Stocks & ETFs", href: "/trade-sectors/stocks" },
+        { label: "Crypto Assets", href: "/trade-sectors/crypto" },
+        { label: "Real Estate", href: "/trade-sectors/real-estate" },
+        { label: "Fixed Income", href: "/trade-sectors/bonds" },
+        { label: "Commodities", href: "/trade-sectors/commodities" },
+        { label: "Business & Startups", href: "/trade-sectors/startups" },
+        { label: "Arts & Collectibles", href: "/trade-sectors/collectibles" },
+        { label: "Gaming & Esports", href: "/trade-sectors/gaming" },
+        { label: "Cash & Savings", href: "/trade-sectors/savings" },
       ],
     },
     {
       category: "Capital Instruments",
-      items: ["Stocks", "Bonds", "ETFs"],
+      items: [
+        { label: "Stocks", href: "/instruments/stocks" },
+        { label: "Bonds", href: "/instruments/bonds" },
+        { label: "ETFs", href: "/instruments/etfs" },
+      ],
     },
     {
       category: "Managed Portfolios",
-      items: ["Investment Plans"],
+      items: [{ label: "Investment Plans", href: "/portfolios/plans" }],
     },
   ]
 
   const companyItems = [
-    { label: "About Us", href: "#" },
-    { label: "License & Regulation", href: "#" },
-    { label: "Privacy Policy", href: "#" },
-    { label: "Contact", href: "#" },
+    { label: "About Us", href: "/company/about" },
+    { label: "License & Regulation", href: "/company/license" },
+    { label: "Privacy Policy", href: "/company/privacy" },
+    { label: "Contact", href: "/company/contact" },
   ]
 
   const tradingItems = [
-    { label: "Futures Trading", href: "#" },
-    { label: "Margin Trading", href: "#" },
-    { label: "Forex Trading", href: "#" },
+    { label: "Futures Trading", href: "/futures-trading" },
+    { label: "Margin Trading", href: "/margin-trading" },
+    { label: "Forex Trading", href: "/forex-trading" },
   ]
 
   return (
@@ -61,32 +65,36 @@ export function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">
+          <a href="/" className="text-foreground hover:text-primary transition-colors font-medium">
             Home
           </a>
-          <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">
+          <a href="/trade-sectors" className="text-foreground hover:text-primary transition-colors font-medium">
             Trade Sectors
           </a>
-          <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">
+          <a href="/futures-trading" className="text-foreground hover:text-primary transition-colors font-medium">
             Futures Trading
           </a>
-          <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">
+          <a href="/margin-trading" className="text-foreground hover:text-primary transition-colors font-medium">
             Margin Trading
           </a>
-          <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">
+          <a href="/forex-trading" className="text-foreground hover:text-primary transition-colors font-medium">
             Forex Trading
           </a>
-          <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">
+          <a href="/company" className="text-foreground hover:text-primary transition-colors font-medium">
             Company
           </a>
         </nav>
 
         {/* Desktop Button */}
         <div className="hidden md:flex gap-4">
-          <Button variant="outline">Login</Button>
-          <Button className="bg-gradient-to-r from-primary to-accent hover:opacity-90">
-            Open Account
-          </Button>
+          <a href="/login">
+            <Button variant="outline">Login</Button>
+          </a>
+          <a href="/open-account">
+            <Button className="bg-gradient-to-r from-primary to-accent hover:opacity-90">
+              Open Account
+            </Button>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -105,7 +113,7 @@ export function Header() {
             <nav className="flex flex-col gap-1">
               {/* Home */}
               <a
-                href="#"
+                href="/"
                 className="px-4 py-3 text-foreground hover:bg-secondary/50 rounded-lg transition-colors"
               >
                 Home
@@ -135,12 +143,12 @@ export function Header() {
                         </h4>
                         <ul className="space-y-1">
                           {section.items.map((item) => (
-                            <li key={item}>
+                            <li key={typeof item === 'string' ? item : item.label}>
                               <a
-                                href="#"
+                                href={typeof item === 'string' ? '#' : item.href}
                                 className="px-4 py-2 text-muted-foreground hover:text-foreground transition-colors text-sm block"
                               >
-                                {item}
+                                {typeof item === 'string' ? item : item.label}
                               </a>
                             </li>
                           ))}
@@ -157,6 +165,7 @@ export function Header() {
                   key={item.label}
                   href={item.href}
                   className="px-4 py-3 text-foreground hover:bg-secondary/50 rounded-lg transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.label}
                 </a>
@@ -184,6 +193,7 @@ export function Header() {
                         key={item.label}
                         href={item.href}
                         className="px-4 py-2 text-muted-foreground hover:text-foreground transition-colors text-sm block"
+                        onClick={() => setMobileMenuOpen(false)}
                       >
                         {item.label}
                       </a>
@@ -195,12 +205,16 @@ export function Header() {
               {/* Login Section */}
               <div className="mt-8 pt-6 border-t border-border space-y-3">
                 <p className="px-4 text-foreground font-semibold text-center">Login</p>
-                <Button variant="outline" className="w-full">
-                  Sign In
-                </Button>
-                <Button className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white font-semibold py-3">
-                  Open Account
-                </Button>
+                <a href="/login" className="block">
+                  <Button variant="outline" className="w-full">
+                    Sign In
+                  </Button>
+                </a>
+                <a href="/open-account" className="block">
+                  <Button className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white font-semibold py-3">
+                    Open Account
+                  </Button>
+                </a>
               </div>
             </nav>
           </div>

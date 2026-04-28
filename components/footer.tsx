@@ -35,23 +35,16 @@ export function Footer() {
   return (
     <footer className="py-12 md:py-16 px-4 border-t border-border bg-background">
       <div className="container mx-auto max-w-6xl">
-        {/* Logo and tagline */}
+        {/* Logo only */}
         <AnimatedSection animation="fade-up">
           <div className="mb-12">
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3">
               <img
                 src="/images/logo.png"
                 alt="VornexChain Logo"
                 className="h-8 w-auto"
               />
-              <span className="text-lg font-semibold text-foreground">VornexChain</span>
             </div>
-            <p className="text-muted-foreground text-sm leading-relaxed max-w-md mb-2">
-              The next generation of wealth management.
-            </p>
-            <p className="text-muted-foreground text-sm leading-relaxed max-w-md">
-              Secure, transparent, and built for everyone.
-            </p>
           </div>
         </AnimatedSection>
 
