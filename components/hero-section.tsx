@@ -38,7 +38,7 @@ export function HeroSection() {
   }, [displayText, isDeleting, currentWordIndex])
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center pt-12 md:pt-16 pb-8 md:pb-12 px-4 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center pt-20 px-4 overflow-hidden">
       {/* Background gradient effects */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-64 md:w-96 h-64 md:h-96 bg-primary/20 rounded-full blur-3xl" />
