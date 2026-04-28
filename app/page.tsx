@@ -4,10 +4,13 @@ import { XchainSection } from "@/components/xchain-section"
 import { FuturesSection } from "@/components/futures-section"
 import { InvestmentPlans } from "@/components/investment-plans"
 import { InvestmentCalculator } from "@/components/investment-calculator"
+import { VirtualTradingSection } from "@/components/virtual-trading-section"
+import { ComplianceSection } from "@/components/compliance-section"
 import { TradingSection } from "@/components/trading-section"
 import { FeaturesSection } from "@/components/features-section"
 import { Footer } from "@/components/footer"
 import { ChatWidget } from "@/components/chat-widget"
+import { CookieConsent } from "@/components/cookie-consent"
 
 export default function Home() {
   return (
@@ -18,10 +21,13 @@ export default function Home() {
       <FuturesSection />
       <InvestmentPlans />
       <InvestmentCalculator />
+      <VirtualTradingSection />
+      <ComplianceSection />
       <TradingSection />
       <FeaturesSection />
       <Footer />
       <ChatWidget />
+      <CookieConsent />
     </main>
   )
 }
