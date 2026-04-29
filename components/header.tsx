@@ -13,7 +13,7 @@ export function Header() {
     {
       category: "Sectors",
       items: [
-        { label: "Stocks & ETFs", href: "/trade-sectors/stocks" },
+        { label: "Stocks & ETFs", href: "https://app.vornexchain.com/sectors/stocks-etfs" },
         { label: "Crypto Assets", href: "/trade-sectors/crypto" },
         { label: "Real Estate", href: "/trade-sectors/real-estate" },
         { label: "Fixed Income", href: "/trade-sectors/bonds" },
