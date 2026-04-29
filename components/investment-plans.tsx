@@ -165,15 +165,17 @@ export function InvestmentPlans() {
                   </div>
 
                   {/* CTA */}
-                  <Button
-                    className={`w-full ${
-                      plan.popular
-                        ? "bg-gradient-to-r from-primary to-pink-500 hover:from-primary/90 hover:to-pink-500/90"
-                        : "bg-secondary hover:bg-secondary/80"
-                    }`}
-                  >
-                    Get Started
-                  </Button>
+                  <a href="https://app.vornexchain.com/user/investments/new?sector=stocks_and_etfs" target="_blank" rel="noopener noreferrer" className="block w-full">
+                    <Button
+                      className={`w-full ${
+                        plan.popular
+                          ? "bg-gradient-to-r from-primary to-pink-500 hover:from-primary/90 hover:to-pink-500/90"
+                          : "bg-secondary hover:bg-secondary/80"
+                      }`}
+                    >
+                      Get Started
+                    </Button>
+                  </a>
                 </div>
               </AnimatedSection>
             )

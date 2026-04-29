@@ -127,7 +127,7 @@ export function Footer() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/futures-trading"
                     className="text-muted-foreground hover:text-foreground transition-colors text-sm"
                   >
                     Futures Trading
@@ -135,7 +135,7 @@ export function Footer() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/margin-trading"
                     className="text-muted-foreground hover:text-foreground transition-colors text-sm"
                   >
                     Margin Trading
@@ -143,7 +143,7 @@ export function Footer() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/forex-trading"
                     className="text-muted-foreground hover:text-foreground transition-colors text-sm"
                   >
                     Forex Trading

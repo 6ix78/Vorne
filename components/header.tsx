@@ -46,9 +46,9 @@ export function Header() {
   ]
 
   const tradingItems = [
-    { label: "Futures Trading", href: "https://app.vornexchain.com/trading/futures" },
-    { label: "Margin Trading", href: "https://app.vornexchain.com/trading/margin" },
-    { label: "Forex Trading", href: "https://app.vornexchain.com/trading/forex" },
+    { label: "Futures Trading", href: "/futures-trading" },
+    { label: "Margin Trading", href: "/margin-trading" },
+    { label: "Forex Trading", href: "/forex-trading" },
   ]
 
   return (
@@ -74,13 +74,13 @@ export function Header() {
           <a href="/trade-sectors" className="text-foreground hover:text-primary transition-colors font-medium">
             Trade Sectors
           </a>
-          <a href="https://app.vornexchain.com/trading/futures" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors font-medium">
+          <a href="/futures-trading" className="text-foreground hover:text-primary transition-colors font-medium">
             Futures Trading
           </a>
-          <a href="https://app.vornexchain.com/trading/margin" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors font-medium">
+          <a href="/margin-trading" className="text-foreground hover:text-primary transition-colors font-medium">
             Margin Trading
           </a>
-          <a href="https://app.vornexchain.com/trading/forex" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors font-medium">
+          <a href="/forex-trading" className="text-foreground hover:text-primary transition-colors font-medium">
             Forex Trading
           </a>
           <div className="group relative">
@@ -192,8 +192,6 @@ export function Header() {
                 <a
                   key={item.label}
                   href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="px-4 py-3 text-foreground hover:bg-secondary/50 rounded-lg transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
