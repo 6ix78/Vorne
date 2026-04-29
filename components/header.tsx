@@ -71,18 +71,34 @@ export function Header() {
           <a href="/trade-sectors" className="text-foreground hover:text-primary transition-colors font-medium">
             Trade Sectors
           </a>
-          <a href="/futures-trading" className="text-foreground hover:text-primary transition-colors font-medium">
+          <a href="https://app.vornexchain.com/trading/futures" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors font-medium">
             Futures Trading
           </a>
-          <a href="/margin-trading" className="text-foreground hover:text-primary transition-colors font-medium">
+          <a href="https://app.vornexchain.com/trading/margin" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors font-medium">
             Margin Trading
           </a>
-          <a href="/forex-trading" className="text-foreground hover:text-primary transition-colors font-medium">
+          <a href="https://app.vornexchain.com/trading/forex" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors font-medium">
             Forex Trading
           </a>
-          <a href="/company" className="text-foreground hover:text-primary transition-colors font-medium">
-            Company
-          </a>
+          <div className="group relative">
+            <button className="text-foreground hover:text-primary transition-colors font-medium flex items-center gap-2">
+              Company
+              <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform" />
+            </button>
+            <div className="absolute left-0 mt-0 w-48 bg-background border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+              {companyItems.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-4 py-3 text-foreground hover:bg-secondary/50 text-sm first:rounded-t-lg last:rounded-b-lg transition-colors"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          </div>
         </nav>
 
         {/* Desktop Button */}
