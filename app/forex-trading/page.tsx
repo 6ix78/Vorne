@@ -3,6 +3,7 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { AnimatedSection } from "@/components/animated-section"
+import TradingDemo from "@/components/trading-demo"
 import { ArrowRight, TrendingUp, Zap, Shield } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -44,6 +45,15 @@ export default function ForexTradingPage() {
                 Learn More
               </Button>
             </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Trading Demo Section */}
+      <section className="py-16 md:py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <AnimatedSection animation="fade-up">
+            <TradingDemo />
           </AnimatedSection>
         </div>
       </section>
