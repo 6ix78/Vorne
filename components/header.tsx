@@ -71,26 +71,42 @@ export function Header() {
           <a href="/trade-sectors" className="text-foreground hover:text-primary transition-colors font-medium">
             Trade Sectors
           </a>
-          <a href="/futures-trading" className="text-foreground hover:text-primary transition-colors font-medium">
+          <a href="https://app.vornexchain.com/trading/futures" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors font-medium">
             Futures Trading
           </a>
-          <a href="/margin-trading" className="text-foreground hover:text-primary transition-colors font-medium">
+          <a href="https://app.vornexchain.com/trading/margin" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors font-medium">
             Margin Trading
           </a>
-          <a href="/forex-trading" className="text-foreground hover:text-primary transition-colors font-medium">
+          <a href="https://app.vornexchain.com/trading/forex" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors font-medium">
             Forex Trading
           </a>
-          <a href="/company" className="text-foreground hover:text-primary transition-colors font-medium">
-            Company
-          </a>
+          <div className="group relative">
+            <button className="text-foreground hover:text-primary transition-colors font-medium flex items-center gap-2">
+              Company
+              <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform" />
+            </button>
+            <div className="absolute left-0 mt-0 w-48 bg-background border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+              {companyItems.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-4 py-3 text-foreground hover:bg-secondary/50 text-sm first:rounded-t-lg last:rounded-b-lg transition-colors"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          </div>
         </nav>
 
         {/* Desktop Button */}
         <div className="hidden md:flex gap-4">
-          <a href="/login">
-            <Button variant="outline">Login</Button>
+          <a href="https://app.vornexchain.com/login" target="_blank" rel="noopener noreferrer">
+            <Button variant="outline">Sign In</Button>
           </a>
-          <a href="/open-account">
+          <a href="https://app.vornexchain.com/register" target="_blank" rel="noopener noreferrer">
             <Button className="bg-gradient-to-r from-primary to-accent hover:opacity-90">
               Open Account
             </Button>
@@ -164,6 +180,8 @@ export function Header() {
                 <a
                   key={item.label}
                   href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-4 py-3 text-foreground hover:bg-secondary/50 rounded-lg transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -192,6 +210,8 @@ export function Header() {
                       <a
                         key={item.label}
                         href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="px-4 py-2 text-muted-foreground hover:text-foreground transition-colors text-sm block"
                         onClick={() => setMobileMenuOpen(false)}
                       >
@@ -202,15 +222,14 @@ export function Header() {
                 )}
               </div>
 
-              {/* Login Section */}
+              {/* Auth Section */}
               <div className="mt-8 pt-6 border-t border-border space-y-3">
-                <p className="px-4 text-foreground font-semibold text-center">Login</p>
-                <a href="/login" className="block">
+                <a href="https://app.vornexchain.com/login" target="_blank" rel="noopener noreferrer" className="block">
                   <Button variant="outline" className="w-full">
                     Sign In
                   </Button>
                 </a>
-                <a href="/open-account" className="block">
+                <a href="https://app.vornexchain.com/register" target="_blank" rel="noopener noreferrer" className="block">
                   <Button className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white font-semibold py-3">
                     Open Account
                   </Button>
