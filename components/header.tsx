@@ -68,6 +68,9 @@ export function Header() {
           <a href="/" className="text-foreground hover:text-primary transition-colors font-medium">
             Home
           </a>
+          <a href="/investment-plans" className="text-foreground hover:text-primary transition-colors font-medium">
+            Investment Plans
+          </a>
           <a href="/trade-sectors" className="text-foreground hover:text-primary transition-colors font-medium">
             Trade Sectors
           </a>
@@ -133,6 +136,15 @@ export function Header() {
                 className="px-4 py-3 text-foreground hover:bg-secondary/50 rounded-lg transition-colors"
               >
                 Home
+              </a>
+
+              {/* Investment Plans */}
+              <a
+                href="/investment-plans"
+                className="px-4 py-3 text-foreground hover:bg-secondary/50 rounded-lg transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Investment Plans
               </a>
 
               {/* Trade Sectors - Collapsible */}
