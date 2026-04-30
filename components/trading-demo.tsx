@@ -21,16 +21,16 @@ interface Order {
   timestamp: string;
 }
 
-const generateChartData = (): ChartData[] => {
+const generateChartData = (basePrice: number = 42000): ChartData[] => {
   const data: ChartData[] = [];
-  let basePrice = 42000;
+  let price = basePrice;
   
   for (let i = 0; i < 24; i++) {
-    const variation = (Math.random() - 0.5) * 1000;
-    basePrice += variation;
+    const variation = (Math.random() - 0.5) * 500;
+    price += variation;
     data.push({
       time: `${i}:00`,
-      price: Math.max(basePrice, 40000),
+      price: Math.max(price, basePrice * 0.95),
       volume: Math.floor(Math.random() * 10000) + 5000,
     });
   }
@@ -44,9 +44,19 @@ const cryptoAssets = [
   { symbol: 'XRP/USD', name: 'Ripple', price: 2.45, change: -0.87, icon: '✕' },
 ];
 
-export default function TradingDemo() {
-  const [chartData, setChartData] = useState<ChartData[]>(generateChartData());
-  const [selectedAsset, setSelectedAsset] = useState(cryptoAssets[0]);
+const forexAssets = [
+  { symbol: 'EUR/USD', name: 'Euro Dollar', price: 1.0875, change: 0.45, icon: '€' },
+  { symbol: 'GBP/USD', name: 'British Pound', price: 1.2650, change: -0.32, icon: '£' },
+  { symbol: 'JPY/USD', name: 'Japanese Yen', price: 149.50, change: 1.23, icon: '¥' },
+  { symbol: 'AUD/USD', name: 'Australian Dollar', price: 0.6750, change: 0.87, icon: 'A$' },
+];
+
+export default function TradingDemo({ variant = 'crypto' }: { variant?: 'crypto' | 'forex' } = {}) {
+  const assets = variant === 'forex' ? forexAssets : cryptoAssets;
+  const basePrice = variant === 'forex' ? 1.0875 : 42000;
+  
+  const [chartData, setChartData] = useState<ChartData[]>(generateChartData(basePrice));
+  const [selectedAsset, setSelectedAsset] = useState(assets[0]);
   const [orderType, setOrderType] = useState<'MARKET' | 'LIMIT'>('MARKET');
   const [tradeType, setTradeType] = useState<'BUY' | 'SELL'>('BUY');
   const [amount, setAmount] = useState('1.5');
@@ -111,20 +121,24 @@ export default function TradingDemo() {
     <div className="w-full bg-gradient-to-br from-background via-secondary/30 to-background rounded-2xl border border-border/50 overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-primary/10 to-accent/10 border-b border-border/50 p-6">
-        <div className="max-w-7xl mx-auto">
+        <div className="mx-auto">
           <h2 className="text-3xl font-bold mb-2">Virtual Trading Demo</h2>
-          <p className="text-muted-foreground">Experience live trading with realistic market data</p>
+          <p className="text-muted-foreground">
+            {variant === 'forex' 
+              ? 'Trade major currency pairs with realistic live forex market data' 
+              : 'Experience live trading with realistic market data'}
+          </p>
         </div>
       </div>
 
       {/* Main Trading Area */}
-      <div className="max-w-7xl mx-auto p-6">
+      <div className="w-full p-6">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Chart Section */}
           <div className="lg:col-span-2 space-y-6">
             {/* Asset Selector */}
             <div className="flex flex-wrap gap-2">
-              {cryptoAssets.map((asset) => (
+              {assets.map((asset) => (
                 <button
                   key={asset.symbol}
                   onClick={() => setSelectedAsset(asset)}
@@ -344,7 +358,7 @@ export default function TradingDemo() {
 
         {/* Recent Orders */}
         {orders.length > 0 && (
-          <div className="mt-8 bg-card border border-border/30 rounded-xl p-6">
+          <div className="mt-8 w-full bg-card border border-border/30 rounded-xl p-6">
             <h3 className="text-xl font-bold mb-4">Recent Orders</h3>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">

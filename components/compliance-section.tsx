@@ -30,20 +30,6 @@ const documents = [
     pdfUrl: "/documents/financial-license.pdf",
     imageUrl: "/certificates/ria-certificate.jpg",
   },
-  {
-    id: 4,
-    title: "Terms of Service",
-    description: "Complete terms and conditions for platform usage",
-    icon: FileText,
-    pdfUrl: "/documents/terms-of-service.pdf",
-  },
-  {
-    id: 5,
-    title: "Privacy Policy",
-    description: "Data protection and privacy compliance documentation",
-    icon: FileText,
-    pdfUrl: "/documents/privacy-policy.pdf",
-  },
 ]
 
 const complianceFeatures = [
