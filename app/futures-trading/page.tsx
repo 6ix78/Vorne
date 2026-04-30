@@ -33,25 +33,13 @@ export default function FuturesTradingPage() {
             </p>
           </AnimatedSection>
 
-          <AnimatedSection animation="fade-up" delay={400}>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://app.vornexchain.com/register" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="px-8 py-6 bg-gradient-to-r from-primary to-accent hover:opacity-90">
-                  Start Trading
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </a>
-              <Button variant="outline" size="lg" className="px-8 py-6">
-                Learn More
-              </Button>
-            </div>
-          </AnimatedSection>
+
         </div>
       </section>
 
       {/* Trading Demo Section */}
-      <section className="py-16 md:py-20 px-4">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-8 md:py-12 px-4">
+        <div className="w-full">
           <AnimatedSection animation="fade-up">
             <TradingDemo />
           </AnimatedSection>
